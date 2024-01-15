@@ -657,7 +657,7 @@ nan_sec_wpa_eapol_key_mic(const u8 *key, size_t key_len, u32 cipher,
 		dumpMemory8(mic, NCS_SK_256_MIC_LEN);
 	} else {
 		/* NAN_CIPHER_SUITE_ID_NCS_SK_CCM_128 */
-		if (hmac_sha256(key, key_len, buf, len, hash)) {
+		if (hmac_sha256_sm(key, key_len, buf, len, hash)) {
 			DBGLOG(NAN, INFO, "[%s] ERROR! hmac_sha256() failed",
 			       __func__);
 			return WLAN_STATUS_FAILURE;
